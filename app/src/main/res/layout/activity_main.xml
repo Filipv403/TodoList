@@ -9,7 +9,38 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Úkoly"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/buttonNewItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="150sp"
+        android:height="50sp"
+        android:background="#2F7732"
+        android:fontFamily="sans-serif"
+        android:text="Přidat"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:cornerRadius="4sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemsView"
+        android:layout_width="361dp"
+        android:layout_height="573dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
