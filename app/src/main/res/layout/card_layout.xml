@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="#D6D6D6">
+    android:layout_marginBottom="8dp"
+    android:backgroundTint="#DADADA"
+    app:cardCornerRadius="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,7 +15,7 @@
 
         <TextView
             android:id="@+id/itemSubject"
-            android:layout_width="370dp"
+            android:layout_width="310dp"
             android:layout_height="36dp"
             android:height="130dp"
             android:textSize="20sp"
@@ -23,7 +25,7 @@
 
         <TextView
             android:id="@+id/itemDescription"
-            android:layout_width="370dp"
+            android:layout_width="310dp"
             android:layout_height="36dp"
             android:layout_marginTop="47dp"
             android:width="230dp"
