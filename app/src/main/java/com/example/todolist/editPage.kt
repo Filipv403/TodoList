@@ -32,6 +32,10 @@ class editPage : AppCompatActivity() {
 
             OpenMainPage();
         }
+        val menuBtn = findViewById<Button>(R.id.buttonEditGoToMenu);
+        menuBtn.setOnClickListener {
+            OpenMainPage();
+        }
     }
 
     fun OpenMainPage() {

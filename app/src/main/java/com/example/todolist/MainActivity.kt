@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         val clearButton = findViewById<Button>(R.id.buttonClear);
         clearButton.setOnClickListener {
-            ClearStorage(sharedPreferences, adapter);
+            ClearStorage(viewModel, adapter);
         }
     }
 
@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent);
     }
 
-    fun ClearStorage(sharedPreferences : SharedPreferences, adapter: ItemAdapter) {
-        sharedPreferences.edit().clear().apply();
+    fun ClearStorage(view : ItemViewModel, adapter: ItemAdapter) {
+        view.ClearItems();
         adapter.notifyDataSetChanged();
     }
 }

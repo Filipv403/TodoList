@@ -8,24 +8,19 @@ import com.google.gson.Gson
 import java.util.Date
 
 class ItemViewModel(private val sharedPreferences: SharedPreferences) : ViewModel() {
-    //private val _itemsJson = MutableLiveData<List<String>>()
-    //val itemsJson: LiveData<List<String>> get() = _itemsJson
+    private val _items = MutableLiveData<List<Item>>()
+    val items: LiveData<List<Item>> get() = _items
+
     fun SaveData(inputSubject: String, inputDescription: String) {
 
         val item: Item = Item(inputSubject, inputDescription);
         val jsonString = ItemToJson(item);
 
         val count = sharedPreferences.all.keys.size;
-        val editor = sharedPreferences.edit()
-        editor.putString((count).toString(), jsonString)
-        editor.apply()
+        val editor = sharedPreferences.edit();
+        editor.putString((count).toString(), jsonString);
+        editor.apply();
     }
-
-    /*fun GetData() {
-        val stringSet = sharedPreferences.getStringSet("TODOLIST", emptySet())
-        val stringList = stringSet?.toList() ?: emptyList()
-        _itemsJson.postValue(stringList)
-    }*/
 
     fun LoadItem(id : String) : Item? {
         val jsonString = sharedPreferences.getString(id, null);
@@ -34,6 +29,10 @@ class ItemViewModel(private val sharedPreferences: SharedPreferences) : ViewMode
         } else {
             return null;
         }
+    }
+
+    fun ClearItems() {
+        sharedPreferences.edit().clear().apply();
     }
 
     fun GetCount() : Int {

@@ -1,5 +1,6 @@
 package com.example.todolist
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,15 @@ class ItemAdapter(private val itemView: ItemViewModel) : RecyclerView.Adapter<It
         init {
             itemSubject = itemView.findViewById(R.id.itemSubject);
             itemDescription = itemView.findViewById(R.id.itemDescription);
+
+            itemView.setOnClickListener {
+                val position: Int = adapterPosition;
+
+                val intent = Intent(itemView.context, DetailItemActivity::class.java).also {
+                    it.putExtra("ID", position);
+                    itemView.context.startActivity(it);
+                };
+            }
         }
     }
 
