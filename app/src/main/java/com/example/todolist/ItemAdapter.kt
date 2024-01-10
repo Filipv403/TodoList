@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemAdapter(private val sharedPreferences: SharedPreferences) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(private val itemView: ItemViewModel) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var itemSubject : TextView;
         var itemDescription : TextView;
@@ -23,10 +23,12 @@ class ItemAdapter(private val sharedPreferences: SharedPreferences) : RecyclerVi
     }
 
     override fun getItemCount(): Int {
-        return sharedPreferences.all.keys.size;
+        return itemView.GetCount();
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item: Item? = itemView.LoadItem(position.toString());
+        holder.itemSubject.text = item?.Subject;
+        holder.itemDescription.text = item?.Description;
     }
 }

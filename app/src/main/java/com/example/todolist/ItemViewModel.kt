@@ -12,12 +12,12 @@ class ItemViewModel(private val sharedPreferences: SharedPreferences) : ViewMode
     //val itemsJson: LiveData<List<String>> get() = _itemsJson
     fun SaveData(inputSubject: String, inputDescription: String) {
 
-        val item: Item = Item(inputSubject, inputDescription, Date());
+        val item: Item = Item(inputSubject, inputDescription);
         val jsonString = ItemToJson(item);
 
         val count = sharedPreferences.all.keys.size;
         val editor = sharedPreferences.edit()
-        editor.putString((count + 1).toString(), jsonString)
+        editor.putString((count).toString(), jsonString)
         editor.apply()
     }
 
@@ -26,6 +26,19 @@ class ItemViewModel(private val sharedPreferences: SharedPreferences) : ViewMode
         val stringList = stringSet?.toList() ?: emptyList()
         _itemsJson.postValue(stringList)
     }*/
+
+    fun LoadItem(id : String) : Item? {
+        val jsonString = sharedPreferences.getString(id, null);
+        if (jsonString != null) {
+            return JsonToItem(jsonString);
+        } else {
+            return null;
+        }
+    }
+
+    fun GetCount() : Int {
+        return sharedPreferences.all.keys.size;
+    }
 
     private fun ItemToJson(item: Item): String {
         val gson = Gson();

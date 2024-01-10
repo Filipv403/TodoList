@@ -26,7 +26,7 @@ class editPage : AppCompatActivity() {
 
             val inputSubject = findViewById<EditText>(R.id.inputSubject).text.toString();
             val inputDescription = findViewById<EditText>(R.id.inputDescription).text.toString();
-            val inputDate = findViewById<EditText>(R.id.inputDate).text.toString();
+            //val inputDate = findViewById<EditText>(R.id.inputDate).text.toString();
 
             viewModel.SaveData(inputSubject, inputDescription);
 
